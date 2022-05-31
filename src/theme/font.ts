@@ -1,6 +1,6 @@
 export const fonts = {
-  black: 'titillium-black',
-  bold: 'titillium-bold',
-  semibold: 'titillium-semibold',
-  regular: 'titillium-regular',
+  black: 'TitilliumWeb-Black',
+  bold: 'TitilliumWeb-Bold',
+  semibold: 'TitilliumWeb-SemiBold',
+  regular: 'TitilliumWeb-Regular',
 };

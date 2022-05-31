@@ -1,4 +1,4 @@
-package com.crytopricer.newarchitecture;
+package com.cryptopricer.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.crytopricer.BuildConfig;
-import com.crytopricer.newarchitecture.components.MainComponentsRegistry;
-import com.crytopricer.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.cryptopricer.BuildConfig;
+import com.cryptopricer.newarchitecture.components.MainComponentsRegistry;
+import com.cryptopricer.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
