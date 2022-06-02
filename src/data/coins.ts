@@ -1,11 +1,21 @@
 export const coins = [
   {
     id: Math.random().toFixed(8),
-    name: 'Etherium',
-    symbol: 'eth',
+    name: 'Bitcoin',
+    symbol: 'btc',
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/bitcoin.png'),
+  },
+  {
+    id: Math.random().toFixed(8),
+    name: 'Etherium',
+    symbol: 'eth',
+    volume: '3337.95',
+    currentPrice: '413,258.06',
+    avgPrice: '56336.27',
+    img: require('../assets/images/etherium.png'),
   },
   {
     id: Math.random().toFixed(8),
@@ -14,6 +24,7 @@ export const coins = [
     volume: '646.62',
     currentPrice: '584.06',
     avgPrice: '680.27',
+    img: require('../assets/images/binance.png'),
   },
   {
     id: Math.random().toFixed(8),
@@ -22,6 +33,7 @@ export const coins = [
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/xrp.png'),
   },
   {
     id: Math.random().toFixed(8),
@@ -30,6 +42,7 @@ export const coins = [
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/bitcoin.png'),
   },
   {
     id: Math.random().toFixed(8),
@@ -38,15 +51,9 @@ export const coins = [
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/bitcoin.png'),
   },
-  {
-    id: Math.random().toFixed(8),
-    name: 'Bitcoin',
-    symbol: 'btc',
-    volume: '3337.95',
-    currentPrice: '4132.06',
-    avgPrice: '56336.27',
-  },
+
   {
     id: Math.random().toFixed(8),
     name: 'Solana',
@@ -54,6 +61,7 @@ export const coins = [
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/bitcoin.png'),
   },
   {
     id: Math.random().toFixed(8),
@@ -62,5 +70,6 @@ export const coins = [
     volume: '3337.95',
     currentPrice: '4132.06',
     avgPrice: '56336.27',
+    img: require('../assets/images/bitcoin.png'),
   },
 ];

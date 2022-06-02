@@ -5,4 +5,6 @@ export const colors = {
   green: '#055437',
   red: '#811f2b',
   neutral: '#fefefe',
+  accent: '#606473',
+  // otherBlack: '#0F0F0F',
 };

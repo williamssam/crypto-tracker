@@ -1,38 +1,33 @@
 import * as React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import CryptoCards from '../components/CryptoCards';
+import Loader from '../components/Loader';
+import MainHeader from '../components/MainHeader';
+import {useCoinMarketQuery} from '../feature/apiSlice';
 import {colors} from '../theme/colors';
-import {fonts} from '../theme/font';
 
 const Home = () => {
+  const {data, error, isLoading} = useCoinMarketQuery('usd');
+
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Crypto</Text>
-          <Text style={styles.subtitle}>Pricer</Text>
-        </View>
+      <View style={styles.mainContainer}>
+        <MainHeader />
+
+        {isLoading ? <Loader /> : <CryptoCards data={data} />}
+        {/* TODO: use netinfo to check if user has connection issue and display it */}
+        {error && <Text>Data cannot be fetched</Text>}
+        {/* */}
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 12,
-  },
-  title: {
-    fontSize: 54,
-    fontWeight: '900',
-    color: colors.black,
-    textTransform: 'uppercase',
-    fontFamily: fonts.black,
-  },
-  subtitle: {
-    fontSize: 30,
-    fontWeight: '600',
-    color: colors.grey,
-    // textTransform: 'uppercase',
+  mainContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: colors.black,
   },
 });
 
