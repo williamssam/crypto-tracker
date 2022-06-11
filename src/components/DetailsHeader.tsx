@@ -1,16 +1,11 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 
 const DetailsHeader = () => {
   return (
     <View style={styles.coinHeader}>
-      {/* <Image
-            source={require('../assets/images/opengraph.png')}
-            style={styles.logo}
-          /> */}
-
       <View>
         <Text style={styles.symbol}>BTC</Text>
         <Text style={styles.currentPrice}>$45,338.11</Text>
@@ -50,7 +45,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignSelf: 'center',
     borderRadius: 30,
-    fontFamily: fonts.semibold,
+    fontFamily: fonts.bold,
   },
 });
 export default DetailsHeader;

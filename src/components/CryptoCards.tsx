@@ -1,27 +1,30 @@
 import * as React from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
-// import {coins} from '../data/coins';
+import {FlatList, StyleSheet, View} from 'react-native';
+import {coins} from '../data/coins';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 import CryptoCard from './CryptoCard';
 // import Underline from './Underline';
 
-const CryptoCards = ({data: coins}: any) => {
+// {data: coins}: any
+const CryptoCards = () => {
+  const renderItem = ({item}: any) => <CryptoCard {...item} key={item.id} />;
+
   return (
     <View style={styles.container}>
       {/* <View>
         <Text style={styles.title}>Popular Currencies</Text>
       </View> */}
-
       {/* CryptoCard */}
       <FlatList
         contentContainerStyle={{paddingBottom: 180}}
         data={coins}
         bounces={false}
         decelerationRate="fast"
+        maxToRenderPerBatch={30}
         showsVerticalScrollIndicator={false}
         keyExtractor={coin => coin.id}
-        renderItem={({item}) => <CryptoCard {...item} key={item.id} />}
+        renderItem={renderItem}
       />
     </View>
   );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 
@@ -23,7 +23,7 @@ const CryptoChart = () => {
 
 const styles = StyleSheet.create({
   chart: {
-    fontSize: 120,
+    fontSize: 130,
     color: colors.neutral,
   },
   days: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.grey,
     textTransform: 'uppercase',
-    fontFamily: fonts.regular,
+    fontFamily: fonts.semibold,
   },
 });
 export default CryptoChart;

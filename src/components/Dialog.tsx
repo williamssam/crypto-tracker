@@ -2,12 +2,12 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
   Dimensions,
-  TouchableOpacity,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {colors} from '../theme/colors';
@@ -77,11 +77,14 @@ const Dialog = ({isModalVisible, toggleModal}: DialogProps) => {
               </View>
             </View>
 
-            <TouchableOpacity
+            <Pressable
               onPress={() => closeModalAndNavigate()}
-              style={styles.priceBtn}>
+              style={({pressed}) => [
+                {opacity: pressed ? 0.8 : 1},
+                styles.priceBtn,
+              ]}>
               <Text style={styles.priceText}>Price History</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </Modal>

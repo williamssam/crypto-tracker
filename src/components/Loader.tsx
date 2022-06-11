@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
   Placeholder,
-  PlaceholderMedia,
   PlaceholderLine,
+  PlaceholderMedia,
   Shine,
 } from 'rn-placeholder';
 import {colors} from '../theme/colors';

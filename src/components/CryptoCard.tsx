@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 import {CoinCardProps} from '../types/types';
@@ -9,8 +9,8 @@ const CryptoCard = ({
   symbol,
   current_price,
   image,
-  price_change_percentage_24h,
-  total_volume,
+  // price_change_percentage_24h,
+  // total_volume,
   name,
 }: CoinCardProps) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -21,16 +21,18 @@ const CryptoCard = ({
 
   return (
     <>
-      <TouchableOpacity style={styles.card} onPress={() => toggleModal()}>
+      <Pressable
+        style={({pressed}) => [{opacity: pressed ? 0.5 : 1}, styles.card]}
+        onPress={() => toggleModal()}>
         <View style={styles.cardLeft}>
           <View style={styles.imgContainer}>
             <Image source={{uri: image}} style={styles.logo} />
           </View>
-          <View style={{marginLeft: 12}}>
+          <View style={styles.cardTextContainer}>
             <View style={styles.cardTexts}>
               <Text style={styles.symbol}>{symbol}</Text>
-              <Text style={styles.name}>/{name}</Text>
             </View>
+            <Text style={styles.name}>{name}</Text>
 
             {/* <Text style={styles.volume}>Vol. {total_volume}</Text> */}
           </View>
@@ -40,7 +42,7 @@ const CryptoCard = ({
           <Text style={styles.currentPrice}>${current_price}</Text>
           <Text style={styles.percent}>+2.49%</Text>
         </View>
-      </TouchableOpacity>
+      </Pressable>
       <Dialog isModalVisible={isModalVisible} toggleModal={toggleModal} />
     </>
   );
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  cardTextContainer: {marginLeft: 12},
   cardTexts: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -85,7 +88,6 @@ const styles = StyleSheet.create({
   },
   name: {
     color: colors.neutral,
-    marginLeft: 5,
     fontSize: 18,
     fontFamily: fonts.regular,
     textTransform: 'capitalize',

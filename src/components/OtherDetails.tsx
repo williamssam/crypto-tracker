@@ -1,28 +1,31 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
+import AboutCrypto from './AboutCrypto';
 
 const OtherDetails = () => {
   return (
-    <View style={styles.otherDetailsContainer}>
+    <ScrollView style={styles.otherDetailsContainer}>
       <View style={styles.otherDetail}>
         <Text style={styles.title}>Trading Volume</Text>
+        <Text style={styles.subtitle}>$2,310,444,898.46</Text>
+      </View>
+      <View style={styles.otherDetail}>
+        <Text style={styles.title}>All Time High</Text>
+        <Text style={styles.subtitle}>$2,310,444,898.46</Text>
+      </View>
+      <View style={styles.otherDetail}>
+        <Text style={styles.title}>All Time High Date</Text>
         <Text style={styles.subtitle}>$2,310,444,898.46</Text>
       </View>
       <View style={styles.otherDetail}>
         <Text style={styles.title}>Trading Volume</Text>
         <Text style={styles.subtitle}>$2,310,444,898.46</Text>
       </View>
-      <View style={styles.otherDetail}>
-        <Text style={styles.title}>Trading Volume</Text>
-        <Text style={styles.subtitle}>$2,310,444,898.46</Text>
-      </View>
-      <View style={styles.otherDetail}>
-        <Text style={styles.title}>Trading Volume</Text>
-        <Text style={styles.subtitle}>$2,310,444,898.46</Text>
-      </View>
-    </View>
+
+      <AboutCrypto />
+    </ScrollView>
   );
 };
 
