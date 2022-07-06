@@ -4,7 +4,7 @@ import Icon from 'react-native-remix-icon';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 
-const WIDTH = 40;
+const SIZE = 40;
 
 const AboutCrypto = () => {
   const icons = ['global-fill', 'twitter-fill', 'home-fill', 'home-fill'];
@@ -13,7 +13,6 @@ const AboutCrypto = () => {
       {/* more details */}
       {/* add ranking as a watermark in the header */}
       <View style={styles.header}>
-        {/* <Text style={styles.headingOne}>About Bitcoin</Text> */}
         <View style={styles.nameContainer}>
           <Text style={styles.position}>
             <Text style={styles.hash}>#</Text>1
@@ -64,8 +63,6 @@ const styles = StyleSheet.create({
   nameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'space-between',
-    // position: 'relative',
   },
   headingTwo: {
     color: colors.neutral,
@@ -102,18 +99,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 20,
+    marginTop: 23,
   },
   socialContainer: {
     backgroundColor: colors.grey,
-    width: WIDTH,
-    height: WIDTH,
-    borderRadius: WIDTH / 2,
+    width: SIZE,
+    height: SIZE,
+    borderRadius: SIZE / 2,
     alignItems: 'center',
     justifyContent: 'center',
   },
   otherInfo: {
-    marginTop: 12,
+    marginTop: 15,
   },
   genesisDate: {
     color: colors.neutral,
