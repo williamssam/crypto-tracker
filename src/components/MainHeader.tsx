@@ -9,11 +9,12 @@ const MainHeader = () => {
     // TODO: Make this section a curved section
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>Crypto</Text>
-        {/* <Text style={styles.subtitle}>Popular Cryptocurrency</Text> */}
+        <Text style={styles.title}>
+          Crypto <Text style={styles.otherTitle}>Tracker</Text>
+        </Text>
         <Underline />
       </View>
-      <Text style={styles.coolEmoji}>😎📈📉</Text>
+      <Text style={styles.coolEmoji}>😎</Text>
     </View>
   );
 };
@@ -31,10 +32,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 35,
   },
   title: {
-    fontSize: 55,
+    fontSize: 42,
     color: colors.neutral,
     fontFamily: fonts.black,
     // textTransform: 'uppercase',
+  },
+  otherTitle: {
+    fontFamily: fonts.semibold,
   },
   subtitle: {
     fontSize: 20,
