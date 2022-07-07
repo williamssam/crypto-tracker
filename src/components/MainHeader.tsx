@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 import Underline from './Underline';
@@ -9,12 +9,11 @@ const MainHeader = () => {
     // TODO: Make this section a curved section
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>
-          Crypto <Text style={styles.otherTitle}>Tracker</Text>
-        </Text>
+        <Text style={styles.title}>Crypto</Text>
+        <Text style={styles.subtitle}>Price Tracker</Text>
         <Underline />
       </View>
-      <Text style={styles.coolEmoji}>😎</Text>
+      <Text style={styles.coolEmoji}>😎📉</Text>
     </View>
   );
 };
@@ -41,13 +40,13 @@ const styles = StyleSheet.create({
     fontFamily: fonts.semibold,
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '600',
     color: colors.neutral,
     textTransform: 'uppercase',
     fontFamily: fonts.bold,
     letterSpacing: 1,
-    lineHeight: 35,
+    lineHeight: 20,
   },
   coolEmoji: {
     fontSize: 32,

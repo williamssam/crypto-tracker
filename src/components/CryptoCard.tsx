@@ -9,7 +9,7 @@ const CryptoCard = ({
   symbol,
   current_price,
   image,
-  // price_change_percentage_24h,
+  price_change_percentage_24h,
   // total_volume,
   name,
 }: CoinCardProps) => {
@@ -40,7 +40,21 @@ const CryptoCard = ({
 
         <View>
           <Text style={styles.currentPrice}>${current_price}</Text>
-          <Text style={styles.percent}>+2.49%</Text>
+          <Text
+            style={[
+              styles.percent,
+              {
+                color:
+                  price_change_percentage_24h.toString()[0] === '-'
+                    ? colors.red
+                    : colors.green,
+              },
+            ]}>
+            {/* check if the first string is a minus, if not add plus */}
+            {price_change_percentage_24h.toString()[0] === '-'
+              ? `${price_change_percentage_24h.toFixed(2)}%`
+              : `+ ${price_change_percentage_24h.toFixed(2)}%`}
+          </Text>
         </View>
       </Pressable>
       <Dialog isModalVisible={isModalVisible} toggleModal={toggleModal} />
@@ -103,6 +117,10 @@ const styles = StyleSheet.create({
     color: colors.neutral,
     fontSize: 25,
   },
+  // percentContainer: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  // },
   percent: {
     textAlign: 'right',
     // NOTE: this color is based on whether the percentage has increased (green) or decrease (red)

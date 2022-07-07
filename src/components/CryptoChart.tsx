@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   day: {
     color: colors.neutral,
-    paddingVertical: 5,
+    paddingVertical: 6,
     paddingHorizontal: 20,
     borderRadius: 25,
     // NOTE: on focused, show the bg color to grey
