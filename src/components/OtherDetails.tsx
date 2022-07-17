@@ -11,7 +11,11 @@ const OtherDetails = () => {
 
       <View style={styles.otherDetails}>
         <View style={styles.otherDetail}>
-          <Text style={styles.title}>Trading Volume</Text>
+          <Text style={styles.title}>Market Cap</Text>
+          <Text style={styles.subtitle}>$2,310,444,898.46</Text>
+        </View>
+        <View style={styles.otherDetail}>
+          <Text style={styles.title}>24 Hour Trading Vol</Text>
           <Text style={styles.subtitle}>$2,310,444,898.46</Text>
         </View>
         <View style={styles.otherDetail}>
@@ -19,11 +23,15 @@ const OtherDetails = () => {
           <Text style={styles.subtitle}>$2,310,444,898.46</Text>
         </View>
         <View style={styles.otherDetail}>
-          <Text style={styles.title}>All Time High Date</Text>
+          <Text style={styles.title}>Circulating Supply</Text>
           <Text style={styles.subtitle}>$2,310,444,898.46</Text>
         </View>
         <View style={styles.otherDetail}>
-          <Text style={styles.title}>Trading Volume</Text>
+          <Text style={styles.title}>Total Supply </Text>
+          <Text style={styles.subtitle}>$2,310,444,898.46</Text>
+        </View>
+        <View style={styles.otherDetail}>
+          <Text style={styles.title}>Max Supply</Text>
           <Text style={styles.subtitle}>$2,310,444,898.46</Text>
         </View>
       </View>
@@ -42,6 +50,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.7,
     borderBottomColor: colors.grey,
     paddingVertical: 15,
+    flexDirection: 'row',
+    // alignItems: 'center',
+    justifyContent: 'space-between',
   },
   title: {
     color: colors.grey,

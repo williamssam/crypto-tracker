@@ -1,0 +1,10 @@
+- convert between coins and show how much to pay in local currency
+- settings to change theme and currency
+- show a network modal if user is not connected to the internet
+- handle error
+- when a coin price is updated, flash a green bg
+maybe*
+* if price increase, flash green bg
+* if price descrease, flash red bg
+
+- allow user to receive notification for their portfolio increase or descrease

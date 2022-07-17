@@ -2,7 +2,8 @@ import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-remix-icon';
-import logo from '../assets/images/opengraph.png';
+import {coinDetails} from '../feature/coinSlice';
+import {useAppSelector} from '../hooks/reduxHooks';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 
@@ -10,19 +11,31 @@ const SIZE = 40;
 
 const DetailsHeader = () => {
   const navigation = useNavigation();
+  const {coin} = useAppSelector(coinDetails);
+  const {symbol, image, market_data} = coin;
+
+  console.log('individual coin', coin);
   return (
     <View style={styles.coinHeader}>
       <Pressable style={styles.backBtn} onPress={() => navigation.goBack()}>
         <Icon name="arrow-left-fill" size={24} color={colors.neutral} />
       </Pressable>
 
-      <View>
+      <View style={styles.coinContainer}>
         <View style={styles.coin}>
-          <Text style={styles.symbol}>BTC</Text>
-          <Image source={logo} style={styles.logo} />
+          <Text style={styles.symbol}>{symbol}</Text>
+          <Image source={{uri: image?.small}} style={styles.logo} />
         </View>
-        <Text style={styles.currentPrice}>$45,338.11</Text>
-        <Text style={styles.percent}>+2.5% (24h)</Text>
+        <Text style={styles.currentPrice}>
+          ${market_data?.current_price.usd.toLocaleString()}
+        </Text>
+        <Text style={styles.percent}>
+          {`${new Intl.NumberFormat('en', {
+            signDisplay: 'always',
+            maximumFractionDigits: 2,
+          }).format(market_data?.price_change_percentage_24h)}%`}{' '}
+          (24h)
+        </Text>
       </View>
     </View>
   );
@@ -33,6 +46,9 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginLeft: 5,
+  },
+  coinContainer: {
+    alignItems: 'center',
   },
   coin: {
     flexDirection: 'row',
@@ -49,6 +65,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.bold,
     fontSize: 25,
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
   currentPrice: {
     fontSize: 45,

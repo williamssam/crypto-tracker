@@ -1,9 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
-import {CoinCardProps} from '../types/types';
-import Dialog from './Dialog';
+import {CoinCardProps, CryptoDetailsNavigationProps} from '../types/types';
+// import Dialog from './Dialog';
 
 const CryptoCard = ({
   symbol,
@@ -11,35 +12,43 @@ const CryptoCard = ({
   image,
   price_change_percentage_24h,
   // total_volume,
+  id,
   name,
 }: CoinCardProps) => {
-  const [isModalVisible, setModalVisible] = React.useState(false);
-
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
+  const navigation = useNavigation<CryptoDetailsNavigationProps>();
 
   return (
     <>
       <Pressable
         style={({pressed}) => [{opacity: pressed ? 0.5 : 1}, styles.card]}
-        onPress={() => toggleModal()}>
+        onPress={() =>
+          navigation.navigate('CryptoDetailsScreen', {coinId: id})
+        }>
         <View style={styles.cardLeft}>
           <View style={styles.imgContainer}>
             <Image source={{uri: image}} style={styles.logo} />
           </View>
           <View style={styles.cardTextContainer}>
             <View style={styles.cardTexts}>
-              <Text style={styles.symbol}>{symbol}</Text>
+              <Text style={styles.name}>{name}</Text>
             </View>
-            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.symbol}>{symbol}</Text>
 
             {/* <Text style={styles.volume}>Vol. {total_volume}</Text> */}
           </View>
         </View>
 
         <View>
-          <Text style={styles.currentPrice}>${current_price}</Text>
+          <Text style={styles.currentPrice}>
+            {/* {current_price.toLocaleString('en', {
+              style: 'currency',
+              currency: 'USD',
+            })} */}
+            {new Intl.NumberFormat('en', {
+              style: 'currency',
+              currency: 'USD',
+            }).format(current_price)}
+          </Text>
           <Text
             style={[
               styles.percent,
@@ -50,14 +59,21 @@ const CryptoCard = ({
                     : colors.green,
               },
             ]}>
-            {/* check if the first string is a minus, if not add plus */}
-            {price_change_percentage_24h.toString()[0] === '-'
+            {/* {price_change_percentage_24h.toString()[0] === '-'
               ? `${price_change_percentage_24h.toFixed(2)}%`
-              : `+ ${price_change_percentage_24h.toFixed(2)}%`}
+              : `+${price_change_percentage_24h.toFixed(2)}%`} */}
+            {`${new Intl.NumberFormat('en', {
+              signDisplay: 'always',
+              // style: 'decimal',
+              maximumFractionDigits: 2,
+            }).format(price_change_percentage_24h)}%`}
           </Text>
         </View>
       </Pressable>
-      <Dialog isModalVisible={isModalVisible} toggleModal={toggleModal} />
+      {/* <Dialog
+        isModalVisible={isModalVisible}
+        toggleModal={toggleModal}
+      /> */}
     </>
   );
 };
@@ -69,6 +85,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 20,
     paddingHorizontal: 16,
+    marginHorizontal: 15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -95,15 +112,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   symbol: {
-    fontSize: 25,
-    color: colors.neutral,
-    fontFamily: fonts.bold,
+    color: colors.grey,
+    fontSize: 17,
+    fontFamily: fonts.semibold,
     textTransform: 'uppercase',
   },
   name: {
     color: colors.neutral,
-    fontSize: 18,
-    fontFamily: fonts.regular,
+    fontSize: 22,
+    fontFamily: fonts.bold,
     textTransform: 'capitalize',
   },
   volume: {
@@ -126,7 +143,7 @@ const styles = StyleSheet.create({
     // NOTE: this color is based on whether the percentage has increased (green) or decrease (red)
     color: colors.neutral,
     fontSize: 16,
-    fontFamily: fonts.semibold,
+    fontFamily: fonts.bold,
   },
 });
 export default CryptoCard;

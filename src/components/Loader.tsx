@@ -11,32 +11,17 @@ import {colors} from '../theme/colors';
 const Loader = () => {
   return (
     <View style={styles.loaderContainer}>
-      <Placeholder
-        Left={PlaceholderMedia}
-        Animation={Shine}
-        style={styles.placeholder}>
-        {/* <PlaceholderLine /> */}
-        <PlaceholderLine />
-        <PlaceholderLine width={60} />
-      </Placeholder>
-
-      <Placeholder
-        Left={PlaceholderMedia}
-        Animation={Shine}
-        style={styles.placeholder}>
-        {/* <PlaceholderLine /> */}
-        <PlaceholderLine />
-        <PlaceholderLine width={60} />
-      </Placeholder>
-
-      <Placeholder
-        Left={PlaceholderMedia}
-        Animation={Shine}
-        style={styles.placeholder}>
-        {/* <PlaceholderLine /> */}
-        <PlaceholderLine />
-        <PlaceholderLine width={60} />
-      </Placeholder>
+      {[...Array(5)]?.map((_, index) => (
+        <Placeholder
+          key={index}
+          Left={PlaceholderMedia}
+          Animation={Shine}
+          style={styles.placeholder}>
+          {/* <PlaceholderLine /> */}
+          <PlaceholderLine />
+          <PlaceholderLine width={60} />
+        </Placeholder>
+      ))}
     </View>
   );
 };
@@ -44,7 +29,8 @@ const Loader = () => {
 const styles = StyleSheet.create({
   loaderContainer: {
     paddingHorizontal: 10,
-    paddingVertical: 30,
+    paddingTop: 10,
+    // paddingVertical: 30,
   },
   placeholder: {
     backgroundColor: colors.lightDark,

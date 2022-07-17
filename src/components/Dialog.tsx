@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import Modal from 'react-native-modal';
+// import {useCoinDetailQuery} from '../feature/apiSlice';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/font';
 import {DialogProps, RootStackParamList} from '../types/types';
@@ -28,6 +29,9 @@ let about =
 // TODO: Make dialog fit all the screen
 const Dialog = ({isModalVisible, toggleModal}: DialogProps) => {
   const navigation = useNavigation<CryptoDetailsNavigationProps>();
+  // const {data, error, isLoading} = useCoinDetailQuery('id');
+
+  // console.log(data);
 
   const closeModalAndNavigate = () => {
     toggleModal();
@@ -63,15 +67,15 @@ const Dialog = ({isModalVisible, toggleModal}: DialogProps) => {
             <Text style={styles.about}>{`${about.slice(0, 150)} ...`}</Text>
 
             <View style={styles.details}>
-              <View style={styles.detail}>
+              <View>
                 <Text style={styles.title}>Rank</Text>
                 <Text style={styles.subtitle}>TOP #3</Text>
               </View>
-              <View style={styles.detail}>
+              <View>
                 <Text style={styles.title}>Live Price</Text>
                 <Text style={styles.subtitle}>$592.22</Text>
               </View>
-              <View style={styles.detail}>
+              <View>
                 <Text style={styles.title}>Market Cap</Text>
                 <Text style={styles.subtitle}>$98 B</Text>
               </View>
